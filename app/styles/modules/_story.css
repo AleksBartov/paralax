@@ -1,0 +1,25 @@
+.story {
+
+    position: absolute;
+    top: 55px;
+    bottom: 10px;
+    overflow: hidden;
+    right: 10px;
+    left: 10px;
+    transition: all 5s cubic-bezier(0.19, 1, 0.22, 1);
+    
+
+     &--bapt {
+        filter: blur(1px);
+         background: url("../../images/priest.jpg") 50% 50% no-repeat;
+         background-size: cover;
+         transform: translateZ(-330px) translateY(5px) translateX(300px);
+     }
+
+     &--test {
+        filter: blur(3px);
+        background: url("../../images/test.jpg") 50% 50% no-repeat;
+        background-size: cover;
+        transform: translateZ(-330px) translateY(5px) translateX(300px);
+    }
+}

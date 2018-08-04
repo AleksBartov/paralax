@@ -1,0 +1,52 @@
+.main-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    perspective: 600px;
+    transform-style: preserve-3d;
+    transform-origin: center center 0;
+    overflow-x: hidden;
+    
+    
+
+    &__text-content {
+        
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        background: linear-gradient(to top, rgba(0, 0, 0, .9), rgba(0, 0, 0, 0));
+
+        &__subtitle {
+            margin: 4px auto;
+            font-weight: 100;
+        }
+
+        &__title {
+            margin: 4px auto;
+            font-weight: 100;
+        }
+        
+        &__text {
+            text-align: justify;
+            max-width: 250px;
+            margin: 4px auto 8px auto;
+            line-height: 0.9;
+        }
+
+        &__btn {
+            transition: all .5s;
+            max-width: 220px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin: 10px auto 40px auto;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        &__btn:hover {
+            box-shadow: 0px 0px 2px 1px white;
+            border: 1px solid rgba(255, 255, 255, 1);
+        }
+     }
+}

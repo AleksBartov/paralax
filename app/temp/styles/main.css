@@ -1,0 +1,153 @@
+html {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #fff;
+    background: linear-gradient(to top, rgba(0, 0, 0, .9), rgba(0, 0, 0, .7));
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.story {
+
+    position: absolute;
+    top: 55px;
+    bottom: 10px;
+    overflow: hidden;
+    right: 10px;
+    left: 10px;
+    transition: all 5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.story--bapt {
+    -webkit-filter: blur(1px);
+            filter: blur(1px);
+    background: url("../../images/priest.jpg") 50% 50% no-repeat;
+    background-size: cover;
+    transform: translateZ(-330px) translateY(5px) translateX(300px);
+}
+
+.story--test {
+    -webkit-filter: blur(3px);
+            filter: blur(3px);
+    background: url("../../images/test.jpg") 50% 50% no-repeat;
+    background-size: cover;
+    transform: translateZ(-330px) translateY(5px) translateX(300px);
+}
+
+.main-container {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    min-height: 100vh;
+    perspective: 600px;
+    transform-style: preserve-3d;
+    transform-origin: center center 0;
+    overflow-x: hidden;
+}
+
+.main-container__text-content {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background: linear-gradient(to top, rgba(0, 0, 0, .9), rgba(0, 0, 0, 0));
+}
+
+.main-container__text-content__subtitle {
+    margin: 4px auto;
+    font-weight: 100;
+}
+
+.main-container__text-content__title {
+    margin: 4px auto;
+    font-weight: 100;
+}
+
+.main-container__text-content__text {
+    text-align: justify;
+    max-width: 250px;
+    margin: 4px auto 8px auto;
+    line-height: 0.9;
+}
+
+.main-container__text-content__btn {
+    transition: all .5s;
+    max-width: 220px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin: 10px auto 40px auto;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.main-container__text-content__btn:hover {
+    box-shadow: 0px 0px 2px 1px white;
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+.header {
+    position: fixed;
+    width: 100%;
+    height: 45px;
+    z-index: 100;
+    text-align: center;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.header__border-left {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: black;
+    width: 10px;
+    height: 100vh;
+    z-index: 100;
+}
+
+.header__border-right {
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    right: 0;
+    background-color: black;
+    width: 10px;
+    height: 100vh;
+}
+
+.header__border-bottom {
+    position: fixed;
+    bottom: 0;
+    z-index: 100;
+    background-color: black;
+    width: 100vw;
+    height: 10px;
+}
+
+.header__title {
+    font-size: 1rem;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60%;
+    text-align: center;
+}
+
+.header__about {
+    font-size: 1rem;
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40%;
+    text-align: center;
+}

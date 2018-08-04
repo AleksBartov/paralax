@@ -1,0 +1,59 @@
+.header {
+    position: fixed;
+    width: 100%;
+    height: 45px;
+    z-index: 100;
+    text-align: center;
+    background-color: black;
+    color: rgba(255, 255, 255, 0.8);
+
+    &__border-left {
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: black;
+        width: 10px;
+        height: 100vh;
+        z-index: 100;
+    }
+
+    &__border-right {
+        position: fixed;
+        top: 0;
+        z-index: 100;
+        right: 0;
+        background-color: black;
+        width: 10px;
+        height: 100vh;
+    }
+
+    &__border-bottom {
+        position: fixed;
+        bottom: 0;
+        z-index: 100;
+        background-color: black;
+        width: 100vw;
+        height: 10px;
+    }
+    
+
+    &__title {
+        font-size: 1rem;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 60%;
+        text-align: center;
+    }
+
+    &__about {
+        font-size: 1rem;
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40%;
+        text-align: center;
+    }
+}
