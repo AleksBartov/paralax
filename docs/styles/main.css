@@ -1,5 +1,188 @@
-@import "base/_global";
-@import "modules/_story";
-@import "modules/_main-container";
-@import "modules/_header";
+html {
+    height: 100%;
+    overflow: hidden;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+   perspective: 600px;
+    transform-style: preserve-3d;
+    transform-origin: center center 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100%;
+    background: rgba(0, 0, 0, .8);
+  }
+  
+.header {
+    font-size: .9rem;
+    text-align: center;
+    transform-origin: center center 0;
+    transform-style: preserve-3d;
+    position: absolute;
+    width: 100vw;
+    height: 40px;
+    background: black;
+    color: rgba(255,255,255,.8);
+    transition: all 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+    &__content {
+     min-width: 100vw;
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);   
+    }
+
+    &__logo {
+        float: left;
+        margin-left: 10px;
+    }
+
+    &__about {
+        float: right;
+        margin-right: 10px;
+    }
+}
+
+  .container {
+    font-size: 3rem;
+    text-align: center;
+     transform-origin: center center 0;
+    transform-style: preserve-3d;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    border: 10px solid black;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, .8),  rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0));
+    color: rgba(255,255,255,.6);
+    transition: all 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+
+    &__btn {
+        overflow: hidden;
+        padding: 10px 15px;
+        width: 50%;
+        position: absolute;
+        bottom: 50px;
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: .9rem;
+        font-weight: 800;
+        border: 1px solid rgba(255,255,255,.8);
+
+        &__corner {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: rgba(255,255,255,.8);
+            transform: rotateZ(-45deg);
+            
+            &--tl {
+                top: -6px;
+                left: -6px;
+            }
+
+            &--tr {
+                top: -6px;
+                right: -6px;
+            }
+
+            &--br {
+                bottom: -6px;
+                right: -6px;
+            }
+
+            &--bl {
+                bottom: -6px;
+                left: -6px;
+            }
+        }
+    }
+  }
+
+  .untilLoad {
+    filter: blur(4px);
+    text-align: center;
+    line-height: 100%;
+    font-size: 2rem;
+    transform-origin: center center 0;
+    transform-style: inherit;
+    position: absolute;
+    top: 10vh;
+    width: 90vw;
+    height: 80vh;
+    left: 5vw;
+    right: 5vw;
+    transform: translateZ(-60px) translateX(330px);
+    transition: all 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+
+  .photo {
+    box-shadow: 0px 0px 100px black;
+    filter: blur(0px);
+    text-align: center;
+    line-height: 100%;
+    font-size: 2rem;
+    transform-origin: center center 0;
+    transform-style: inherit;
+    position: absolute;
+    top: 10vh;
+    width: 90vw;
+    height: 90vh;
+    left: 5vw;
+    right: 5vw;
+    transform: translateZ(-60px) translateX(0px);
+    transition: all 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+  }
+  
+  #varvara {
+    background: url('../../images/priest.jpg') top center no-repeat;
+    background-size: cover;
+  }
+  
+  #boris {
+    background: url('../../images/cross.jpeg') top center no-repeat;
+    background-size: cover;
+  }
+  
+  
+  #ivan {
+    background: url('../../images/test.jpg') top center no-repeat;
+    background-size: cover;
+  }
+  
+  .back {
+    box-shadow: 0px 0px 10px black;
+    transform: translateY(-220px) translateX(0px) translateZ(-800px);
+    filter: blur(4px);
+  }
+  
+  .back--right {
+    box-shadow: 0px 0px 10px black;
+    transform: translateY(-60px) translateX(250px) translateZ(-400px);
+    filter: blur(4px);
+  }
+  
+  .back--left {
+    box-shadow: 0px 0px 10px black;
+    transform: translateY(-60px) translateX(-250px) translateZ(-400px);
+    filter: blur(4px);
+  }
+
+  .chosen {
+    transform: translateY(0px) translateX(0px) translateZ(1px);
+    filter: blur(0px);
+    width: 100vw;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    min-height: 100vh;
+  }
 
