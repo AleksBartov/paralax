@@ -3,7 +3,11 @@ window.addEventListener('load', function(){
   const a = document.getElementById('varvara'),
         b = document.getElementById('ivan'),
         c = document.getElementById('boris'),
-        box1 = document.getElementById('container')
+        box1 = document.getElementById('container'),
+        containerInvi = document.getElementById('container__invi'),
+        contPretitle = document.getElementById('pretitle'),
+        contTitle = document.getElementById('contTitle'),
+        contText = document.getElementById('contText')
 
   this.setTimeout(function() {
     a.classList.remove('untilLoad')
@@ -14,14 +18,43 @@ window.addEventListener('load', function(){
     c.classList.add('photo')
     b.classList.add('back--right')
     c.classList.add('back--right')
-  }, 1000)
-  
-  
+  }, 1500)
 
+  this.setTimeout(function() {
+    containerInvi.classList.remove('invi')
+  }, 2000)
+  
+  const dataOfTitles = [
+    {
+      pretitle: 'рождение',
+      title: 'ВОДОЮ И ДУХОМ',
+      text: '"истинно, истинно говорю тебе, если кто не родится от воды и Духа, не может войти в Царствие Божие. Рожденное от плоти есть плоть, а рожденное от Духа есть дух" (Ин.3,5-6)'
+    },
+    {
+      pretitle: 'прощение',
+      title: 'СЛОВОМ',
+      text: '"истинно, истинно говорю тебе, если кто не родится от воды и Духа, не может войти в Царствие Божие. Рожденное от плоти есть плоть, а рожденное от Духа есть дух" (Ин.3,5-6)'
+    },
+    {
+      pretitle: 'питание',
+      title: 'ТЕЛОМ И КРОВИЮ',
+      text: '"истинно, истинно говорю тебе, если кто не родится от воды и Духа, не может войти в Царствие Божие. Рожденное от плоти есть плоть, а рожденное от Духа есть дух" (Ин.3,5-6)'
+    }
+  ]
+
+  let counter = 0
+  contPretitle.innerHTML = dataOfTitles[counter].pretitle
+  contTitle.innerHTML = dataOfTitles[counter].title
+  contText.innerHTML = dataOfTitles[counter].text
 
   // прокрутка влево
   
   function scrollToTheLeft () {
+    counter++
+    contPretitle.innerHTML = dataOfTitles[counter].pretitle
+    contTitle.innerHTML = dataOfTitles[counter].title
+    contText.innerHTML = dataOfTitles[counter].text
+
     if ( !a.classList.contains('back--left') && !a.classList.contains('back--right') ) {
               a.classList.add('back--left')
               c.classList.remove('back--left')
@@ -43,6 +76,12 @@ window.addEventListener('load', function(){
   // прокрутка вправо
   
   function scrollToTheRight () {
+
+    counter--
+    contPretitle.innerHTML = dataOfTitles[counter].pretitle
+    contTitle.innerHTML = dataOfTitles[counter].title
+    contText.innerHTML = dataOfTitles[counter].text
+
     if ( !a.classList.contains('back--left') && !a.classList.contains('back--right') ) {
               a.classList.add('back--right')
               c.classList.remove('back--left')
