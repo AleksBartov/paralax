@@ -1,146 +1,122 @@
-window.addEventListener('load', function(){
+addEventListener('load', function(e){
 
-  const a = document.getElementById('varvara'),
-        b = document.getElementById('ivan'),
-        c = document.getElementById('boris'),
-        box1 = document.getElementById('container'),
-        containerInvi = document.getElementById('container__invi'),
-        contPretitle = document.getElementById('pretitle'),
-        contTitle = document.getElementById('contTitle'),
-        contText = document.getElementById('contText')
 
-  this.setTimeout(function() {
-    a.classList.remove('untilLoad')
-    b.classList.remove('untilLoad')
-    c.classList.remove('untilLoad')
-    a.classList.add('photo')
-    b.classList.add('photo')
-    c.classList.add('photo')
-    b.classList.add('back--right')
-    c.classList.add('back--right')
+  const title = document.getElementsByTagName('h4')[0],
+  
+  pOne = document.getElementsByTagName('p')[0],
+  
+  pTwo = document.getElementsByTagName('p')[1],
+  
+  firBtn = document.getElementById('firstBtn'),
+  
+  neareFon = document.getElementById('nearFon'),
+  
+  blFon = document.getElementById('blackFon')
+  
+  
+  let x = 0,
+  
+      a = 0,
+  
+      c = 0,
+  
+      z = 0
+  
+  
+  setTimeout(()=>{pOne.style.lineHeight ='1.3'}, 100)
+  
+  
+  const y = setInterval(toShow, 10),
+  
+  b = setInterval(toShowP, 20)
+  
+  
+  let d = null
+  
+  
+  setTimeout(()=>{
+  
+  d = setInterval(toShowPTwo, 10)
+  
   }, 1500)
-
-  this.setTimeout(function() {
-    containerInvi.classList.remove('invi')
-  }, 2000)
   
-  const dataOfTitles = [
-    {
-      pretitle: 'рождение',
-      title: 'ВОДОЮ И ДУХОМ',
-      text: '"истинно, истинно говорю тебе, если кто не родится от воды и Духа, не может войти в Царствие Божие. Рожденное от плоти есть плоть, а рожденное от Духа есть дух" (Ин.3,5-6)'
-    },
-    {
-      pretitle: 'прощение',
-      title: 'СЛОВОМ',
-      text: '"истинно, истинно говорю тебе, если кто не родится от воды и Духа, не может войти в Царствие Божие. Рожденное от плоти есть плоть, а рожденное от Духа есть дух" (Ин.3,5-6)'
-    },
-    {
-      pretitle: 'питание',
-      title: 'ТЕЛОМ И КРОВИЮ',
-      text: '"истинно, истинно говорю тебе, если кто не родится от воды и Духа, не может войти в Царствие Божие. Рожденное от плоти есть плоть, а рожденное от Духа есть дух" (Ин.3,5-6)'
-    }
-  ]
-
-  let counter = 0
-  contPretitle.innerHTML = dataOfTitles[counter].pretitle
-  contTitle.innerHTML = dataOfTitles[counter].title
-  contText.innerHTML = dataOfTitles[counter].text
-
-  // прокрутка влево
   
-  function scrollToTheLeft () {
-    counter++
-    contPretitle.innerHTML = dataOfTitles[counter].pretitle
-    contTitle.innerHTML = dataOfTitles[counter].title
-    contText.innerHTML = dataOfTitles[counter].text
-
-    if ( !a.classList.contains('back--left') && !a.classList.contains('back--right') ) {
-              a.classList.add('back--left')
-              c.classList.remove('back--left')
-              c.classList.add('back--right')
-              b.classList.remove('back--right')
-         } else if ( a.classList.contains('back--left') ) {
-              a.classList.remove('back--left')
-              a.classList.add('back--right')
-              c.classList.remove('back--right')
-              b.classList.add('back--left')
-         } else {
-              a.classList.remove('back--right')
-              c.classList.add('back--left')
-              b.classList.remove('back--left')
-              b.classList.add('back--right')
-        }
-      }
   
-  // прокрутка вправо
   
-  function scrollToTheRight () {
-
-    counter--
-    contPretitle.innerHTML = dataOfTitles[counter].pretitle
-    contTitle.innerHTML = dataOfTitles[counter].title
-    contText.innerHTML = dataOfTitles[counter].text
-
-    if ( !a.classList.contains('back--left') && !a.classList.contains('back--right') ) {
-              a.classList.add('back--right')
-              c.classList.remove('back--left')
-              b.classList.remove('back--right')
-              b.classList.add('back--left')
-         } else if ( a.classList.contains('back--left') ) {
-              a.classList.remove('back--left')
-              c.classList.remove('back--right')
-              c.classList.add('back--left')
-              b.classList.add('back--right')
-         } else {
-              a.classList.remove('back--right')
-              a.classList.add('back--left')
-              c.classList.add('back--right')
-              b.classList.remove('back--left')
-        }
-      }
-
-  // выбор статьи
-
-  function toChoose () {
-    if ( !a.classList.contains('back--left') && !a.classList.contains('back--right') ) {
-            a.classList.add('chosen')
-      } else if ( !b.classList.contains('back--left') && !b.classList.contains('back--right') ) {
-            b.classList.add('chosen')
-      } else {
-            c.classList.add('chosen')
-      }
+  function toShow () {
+  
+    x++
+  
+    title.style.backgroundImage = `linear-gradient(to right, rgba(255,255,255,1) ${x/4}%, rgba(0,0,0,0) ${x}%)`
+  
+   if (x > 250) {clearInterval(y)}
+  
   }
   
-  // код чтения событий косания ( право/ лево )
   
-  var startx = 0, dist = 0
+  function toShowP () {
   
-  box1.addEventListener('touchstart', function(e){
-      var touchobj = e.changedTouches[0]
-      startx = parseInt(touchobj.clientX)
-      e.preventDefault()
-    }, false)
+    a++
   
+    pOne.style.backgroundImage = `linear-gradient( to bottom, rgba(255,255,255,1) ${a/3}%, rgba(0,0,0,0) ${a}%)`
   
-  box1.addEventListener('touchmove', function(e){
-      var touchobj = e.changedTouches[0]
-      dist = parseInt(touchobj.clientX) - startx
-      e.preventDefault()
-    }, false)
-
-  box1.addEventListener('touchend', function(e){
-      if ( dist > 10 ) {
-        scrollToTheRight()
-      } else if ( dist < 10 && dist > -10 ) {
-        toChoose()
-      } else {
-        scrollToTheLeft()
-      }
-      e.preventDefault()
-    }, false)
-
-  },
+   if (a > 250) {clearInterval(b)}
+  
+  }
   
   
-  false);
+  function toShowPTwo () {
+  
+    c++
+  
+    pTwo.style.backgroundImage = `linear-gradient(to bottom, rgba(255,255,255,1) ${c/4}%, rgba(0,0,0,0) ${c}%)`
+  
+   if (c > 250) {clearInterval(d)}
+  
+  }
+  
+  
+  setTimeout(()=>{
+  
+    firBtn.style.top = '0px'
+  
+  }, 3000)
+  
+  
+  
+  firBtn.addEventListener('click', ()=>{
+  
+    firBtn.classList.add('shining')
+  
+  
+    setTimeout(()=>{
+  
+      neareFon.style.visibility = 'hidden'
+  
+      blFon.style.visibility = 'hidden'
+  
+    }, 2000)
+  
+  
+    neareFon.style.zIndex = '10'
+  
+  
+    const e = setInterval(toHideAll, 10)
+  
+  
+  function toHideAll () {
+  
+    z++
+  
+    neareFon.style.backgroundImage = `radial-gradient(circle at top left, rgba(0,0,0,1) ${z/2}%, rgba(0,0,0,0) ${z}%), radial-gradient(circle at bottom left, rgba(0,0,0,1) ${z/2}%, rgba(0,0,0,0) ${z}%), radial-gradient(circle at top right, rgba(0,0,0,1) ${z/2}%, rgba(0,0,0,0) ${z}%), radial-gradient(circle at bottom right, rgba(0,0,0,1) ${z/2}%, rgba(0,0,0,0) ${z}%)`
+  
+   if (z > 70) {clearInterval(e)}
+  
+  }
+  
+  
+  }, false)
+  
+  
+  }, false)
+  
