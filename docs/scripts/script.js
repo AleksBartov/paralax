@@ -11,7 +11,110 @@ addEventListener('load', function(e){
   
   neareFon = document.getElementById('nearFon'),
   
-  blFon = document.getElementById('blackFon')
+  fonForTitle = document.getElementById('spanTitle'),
+  
+  blFon = document.getElementById('blackFon'),
+  
+  mainF = document.getElementById('mainFrame'),
+  
+  allPhotos = document.getElementsByClassName('photo')
+  
+  
+  const allPhotosArray = [
+  
+    allPhotos[0],
+  
+    allPhotos[1],
+  
+    allPhotos[2],
+  
+    allPhotos[3],
+  
+    allPhotos[4],
+  
+    allPhotos[5],
+  
+    allPhotos[6]
+  
+   ]
+  
+  
+  const urlForPhotos = [
+  
+    './images/priest.jpg',
+  
+    './images/priest.jpg',
+  
+    './images/priest.jpg',
+  
+    './images/venchanie.jpg',
+  
+    './images/priest.jpg',
+  
+    './images/priest.jpg',
+  
+    './images/evharistia.jpg'
+  
+   ]
+  
+  
+  const themes = [
+  
+     {
+  
+       mainTitle: 'крещение'
+  
+     },
+  
+     {
+  
+       mainTitle: 'миропомазание'
+  
+     },
+  
+     {
+  
+       mainTitle: 'покаяние'
+  
+     },
+  
+     {
+  
+       mainTitle: 'брак'
+  
+     },
+  
+     {
+  
+       mainTitle: 'священство'
+  
+     },
+  
+     {
+  
+       mainTitle: 'соборование'
+  
+     },
+  
+     {
+  
+       mainTitle: 'евхаристия'
+  
+     }
+  
+   ]
+  
+  
+  
+  
+  allPhotosArray.forEach((p, index)=>{
+  
+    p.style.background = `url(${urlForPhotos[index]}) top center no-repeat`
+  
+    p.style.backgroundSize = 'cover'
+  
+  })
+  
   
   
   let x = 0,
@@ -20,7 +123,9 @@ addEventListener('load', function(e){
   
       c = 0,
   
-      z = 0
+      z = 0,
+  
+      zz = 0
   
   
   setTimeout(()=>{pOne.style.lineHeight ='1.3'}, 100)
@@ -38,7 +143,7 @@ addEventListener('load', function(e){
   
   d = setInterval(toShowPTwo, 10)
   
-  }, 1500)
+  }, 2500)
   
   
   
@@ -86,6 +191,9 @@ addEventListener('load', function(e){
   
   firBtn.addEventListener('click', ()=>{
   
+  
+  fonForTitle.innerHTML = themes[0].mainTitle
+  
     firBtn.classList.add('shining')
   
   
@@ -96,6 +204,19 @@ addEventListener('load', function(e){
       blFon.style.visibility = 'hidden'
   
     }, 2000)
+  
+  
+    setTimeout(()=>{
+  
+      allPhotosArray[0].classList.remove('noShow')
+  
+  
+  allPhotosArray[1].classList.remove('noShow')
+  
+  allPhotosArray[1].classList.add('photo--2')
+  
+  
+    }, 2600)
   
   
     neareFon.style.zIndex = '10'
@@ -116,6 +237,325 @@ addEventListener('load', function(e){
   
   
   }, false)
+  
+  
+  
+  
+  
+  
+  
+  // код слайдера
+  
+  
+  
+  
+  let startx = 0, dist = 0, counter = 0, titlesCounter = 0
+  
+  
+  mainF.addEventListener('touchstart', function(e){
+  
+          var touchobj = e.changedTouches[0]
+  
+          startx = parseInt(touchobj.clientX)
+  
+  
+        zz = 0
+  
+  
+  fonForTitle.style.backgroundImage = 'radial-gradient(circle, rgba(255,255,255,.9) 0%, rgba(0,0,0,0) 0%)'
+  
+          
+  
+          e.preventDefault()
+  
+      }, false)
+  
+  
+  mainF.addEventListener('touchmove', function(e){
+  
+          var touchobj = e.changedTouches[0]
+  
+          dist = parseInt(touchobj.clientX) - startx
+  
+          
+  
+          e.preventDefault()
+  
+      }, false)
+  
+  
+      mainF.addEventListener('touchend', function(e){
+  
+  
+  if(dist<0 && titlesCounter<6){
+  
+            titlesCounter++
+  
+            fonForTitle.innerHTML = themes[titlesCounter].mainTitle
+  
+          } else if(dist>0 && titlesCounter>0){
+  
+            titlesCounter--
+  
+            fonForTitle.innerHTML = themes[titlesCounter].mainTitle
+  
+          } else {
+  
+            fonForTitle.innerHTML = themes[titlesCounter].mainTitle
+  
+          }
+  
+  
+  setTimeout(()=>{
+  
+      const eee = setInterval(toShowTitles, 10)
+  
+  
+  function toShowTitles () {
+  
+    zz++
+  
+  
+  fonForTitle.style.backgroundImage = `radial-gradient(circle, rgba(255,255,255,.9) ${zz}%, rgba(0,0,0,0) ${zz*2}%)`
+  
+   if (zz > 120) {clearInterval(eee)}
+  
+  }
+  
+  }, 1000)
+  
+  
+      if(counter == 0 && dist>0 || counter == -6 && dist<0){
+  
+        return
+  
+     }
+  
+      
+  
+      if(dist < 0){
+  
+        counter--
+  
+  allPhotosArray.forEach((p)=>{
+  
+       switch(p.classList[1]){
+  
+         case 'photo--6-':
+  
+  p.classList.remove('photo--6-')
+  
+  p.classList.add('photo--7-')
+  
+         break;
+  
+         case 'photo--5-':
+  
+  p.classList.remove('photo--5-')
+  
+  p.classList.add('photo--6-')
+  
+        break;
+  
+         case 'photo--4-':
+  
+  p.classList.remove('photo--4-')
+  
+  p.classList.add('photo--5-')
+  
+         break;
+  
+         case 'photo--3-':
+  
+  p.classList.remove('photo--3-')
+  
+  p.classList.add('photo--4-')
+  
+         break;
+  
+         case 'photo--2-':
+  
+  p.classList.remove('photo--2-')
+  
+  p.classList.add('photo--3-')
+  
+        break;
+  
+         case 'photo--1':
+  
+  p.classList.remove('photo--1')
+  
+  p.classList.add('photo--2-')
+  
+         break;
+  
+         case 'photo--2':
+  
+  p.classList.remove('photo--2')
+  
+  p.classList.add('photo--1')
+  
+        break;
+  
+         case 'photo--3':
+  
+  p.classList.remove('photo--3')
+  
+  p.classList.add('photo--2')
+  
+         break;
+  
+         case 'photo--4':
+  
+  p.classList.remove('photo--4')
+  
+  p.classList.add('photo--3')
+  
+         break;
+  
+         case 'photo--5':
+  
+  p.classList.remove('photo--5')
+  
+  p.classList.add('photo--4')
+  
+        break;
+  
+         case 'photo--6':
+  
+  p.classList.remove('photo--6')
+  
+  p.classList.add('photo--5')
+  
+         break;
+  
+         case 'photo--7':
+  
+  p.classList.remove('photo--7')
+  
+  p.classList.add('photo--6')
+  
+         break;
+  
+       }
+  
+    })
+  
+  } else {
+  
+       counter++
+  
+  allPhotosArray.forEach((p)=>{
+  
+       switch(p.classList[1]){
+  
+         case 'photo--7-':
+  
+  p.classList.remove('photo--7-')
+  
+  p.classList.add('photo--6-')
+  
+         break;
+  
+         case 'photo--6-':
+  
+  p.classList.remove('photo--6-')
+  
+  p.classList.add('photo--5-')
+  
+         break;
+  
+         case 'photo--5-':
+  
+  p.classList.remove('photo--5-')
+  
+  p.classList.add('photo--4-')
+  
+        break;
+  
+         case 'photo--4-':
+  
+  p.classList.remove('photo--4-')
+  
+  p.classList.add('photo--3-')
+  
+         break;
+  
+         case 'photo--3-':
+  
+  p.classList.remove('photo--3-')
+  
+  p.classList.add('photo--2-')
+  
+         break;
+  
+         case 'photo--2-':
+  
+  p.classList.remove('photo--2-')
+  
+  p.classList.add('photo--1')
+  
+        break;
+  
+         case 'photo--1':
+  
+  p.classList.remove('photo--1')
+  
+  p.classList.add('photo--2')
+  
+         break;
+  
+         case 'photo--2':
+  
+  p.classList.remove('photo--2')
+  
+  p.classList.add('photo--3')
+  
+        break;
+  
+         case 'photo--3':
+  
+  p.classList.remove('photo--3')
+  
+  p.classList.add('photo--4')
+  
+         break;
+  
+         case 'photo--4':
+  
+  p.classList.remove('photo--4')
+  
+  p.classList.add('photo--5')
+  
+         break;
+  
+         case 'photo--5':
+  
+  p.classList.remove('photo--5')
+  
+  p.classList.add('photo--6')
+  
+        break;
+  
+         case 'photo--6':
+  
+  p.classList.remove('photo--6')
+  
+  p.classList.add('photo--7')
+  
+         break;
+  
+       }
+  
+    })
+  
+  }
+  
+  
+          e.preventDefault()
+  
+      }, false)
+  
   
   
   }, false)
