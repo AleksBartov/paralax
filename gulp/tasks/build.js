@@ -4,7 +4,18 @@ del = require('del'),
 usemin = require('gulp-usemin'),
 rev = require('gulp-rev'),
 cssnano = require('gulp-cssnano'),
-uglify = require('gulp-uglify-es').default;
+uglify = require('gulp-uglify-es').default,
+browserSync = require('browser-sync').create();
+
+
+gulp.task('previewDocs', function() {
+    browserSync.init({
+        notify: false,
+        server: {
+          baseDir: "docs"
+        }
+      });
+});
 
 
 gulp.task('deleteDocsFolder', function() {
@@ -21,7 +32,7 @@ gulp.task('optimizeImages', ['deleteDocsFolder'], function() {
         .pipe(gulp.dest('./docs/images'));
 });
 
-gulp.task('usemin', ['deleteDocsFolder'], function() {
+gulp.task('usemin', ['deleteDocsFolder', 'styles'], function() {
     return gulp.src("./app/index.html")
         .pipe(usemin({
             css: [function() { return rev() }, function() { return cssnano() }],

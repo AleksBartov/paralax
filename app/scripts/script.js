@@ -214,7 +214,7 @@ addEventListener('load', function(e){
   allPhotosArray[1].classList.add('photo--2')
   
   
-    }, 2600)
+    }, 1500)
   
   
     neareFon.style.zIndex = '10'

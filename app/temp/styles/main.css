@@ -83,17 +83,20 @@ body {
 
 
 .noShow {
-
+  transition: all 4s cubic-bezier(0.19, 1, 0.22, 1);
   transform: translateZ(-110px) translateX(355px);
-
   -webkit-filter: blur(2px);
-
           filter: blur(2px);
+}
 
+
+.photo--1 {
+  transition: all 4s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 
 .photo--2 {
+  transition: all 4s cubic-bezier(0.19, 1, 0.22, 1);
 
   transform: translateZ(-110px) translateX(265px);
 
