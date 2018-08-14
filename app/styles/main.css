@@ -202,6 +202,10 @@ body {
 
 }
 
+.choosenPhoto {
+  transform: translateZ(-1px);
+}
+
 
 
 
@@ -284,17 +288,48 @@ body {
 
   background: transparent;
 
-  top: 56%;
+  top: 70%;
 
 }
 
+#containerForTitles > :nth-child(1) {
+  display: block;
 
+  font-size: .7rem;
 
-#containerForTitles > span {
+  background-clip: text;
 
-  font-size: 2rem;
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  background-image: radial-gradient(circle, rgba(255,255,255,.9) 200%, rgba(0,0,0,0) 0%);
+
+}
+
+#containerForTitles > :nth-child(2) {
+
+  display: block;
+
+  font-size: 1.6rem;
 
   font-weight: 100;
+
+  background-clip: text;
+
+  -webkit-background-clip: text;
+
+  color: transparent;
+
+  background-image: radial-gradient(circle, rgba(255,255,255,.9) 200%, rgba(0,0,0,0) 0%);
+
+}
+
+#containerForTitles > :nth-child(3) {
+
+  display: block;
+
+  font-size: .8rem;
 
   background-clip: text;
 
@@ -529,5 +564,19 @@ body {
   width: 100%;
 
   height: 100%;
+
+}
+
+#nearFonTwo {
+
+  z-index: -10;
+
+  position: absolute;
+
+  top: 6%;
+
+  width: 100%;
+
+  height: 95%;
 
 }

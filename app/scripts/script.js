@@ -10,8 +10,14 @@ addEventListener('load', function(e){
   firBtn = document.getElementById('firstBtn'),
   
   neareFon = document.getElementById('nearFon'),
+
+  neareFonTwo = document.getElementById('nearFonTwo'),
   
   fonForTitle = document.getElementById('spanTitle'),
+
+  fonForPreTitle = document.getElementById('spanPreTitle'),
+
+  fonForFromNT = document.getElementById('spanFromNT'),
   
   blFon = document.getElementById('blackFon'),
   
@@ -62,43 +68,57 @@ addEventListener('load', function(e){
   
      {
   
-       mainTitle: 'крещение'
+       mainTitle: 'крещении',
+       preTitle: 'узнай о',
+       fromNT: 'Научите вся языки, крестяще их во имя Отца и Сына, и Святаго Духа (Мф, 25.17)'
   
      },
   
      {
   
-       mainTitle: 'миропомазание'
+       mainTitle: 'миропомазании',
+       preTitle: 'узнай о',
+       fromNT: 'Дух Святый наставит вас на всякую истину (Мф, 25.17)'
   
      },
   
      {
   
-       mainTitle: 'покаяние'
+       mainTitle: 'покаянии',
+       preTitle: 'узнай о',
+       fromNT: 'Покайтесь и веруйте во Евангелие (Мф, 25.17)'
   
      },
   
      {
   
-       mainTitle: 'брак'
+       mainTitle: 'браке',
+       preTitle: 'узнай о',
+       fromNT: 'Что Бог сочетал, человек да не разлучает (Мф, 25.17)'
   
      },
   
      {
   
-       mainTitle: 'священство'
+       mainTitle: 'священстве',
+       preTitle: 'узнай о',
+       fromNT: 'Имже отпустите грехи, отпустятся им (Мф, 25.17)'
   
      },
   
      {
   
-       mainTitle: 'соборование'
+       mainTitle: 'соборовании',
+       preTitle: 'узнай о',
+       fromNT: 'И мазали больных маслом (Мф, 25.17)'
   
      },
   
      {
   
-       mainTitle: 'евхаристия'
+       mainTitle: 'евхаристии',
+       preTitle: 'узнай о',
+       fromNT: 'Это есть истинная Пища и истинное Питие (Мф, 25.17)'
   
      }
   
@@ -125,7 +145,9 @@ addEventListener('load', function(e){
   
       z = 0,
   
-      zz = 0
+      zz = 0,
+
+      zzz = 0
   
   
   setTimeout(()=>{pOne.style.lineHeight ='1.3'}, 100)
@@ -191,7 +213,9 @@ addEventListener('load', function(e){
   
   firBtn.addEventListener('click', ()=>{
   
+  fonForPreTitle.innerHTML = themes[0].preTitle
   fonForTitle.innerHTML = themes[0].mainTitle
+  fonForFromNT.innerHTML = themes[0].fromNT
   
     firBtn.classList.add('shining')
   
@@ -233,9 +257,13 @@ addEventListener('load', function(e){
   
   }
   
-  
   }, false)
   
+
+
+
+
+
   // код слайдера
   var startx = 0, dist = 0, counter = 0, titlesCounter = 0
   
@@ -250,7 +278,9 @@ addEventListener('load', function(e){
         zz = 0
   
   
+  fonForPreTitle.style.backgroundImage = 'radial-gradient(circle, rgba(255,255,255,.9) 0%, rgba(0,0,0,0) 0%)'
   fonForTitle.style.backgroundImage = 'radial-gradient(circle, rgba(255,255,255,.9) 0%, rgba(0,0,0,0) 0%)'
+  fonForFromNT.style.backgroundImage = 'radial-gradient(circle, rgba(255,255,255,.9) 0%, rgba(0,0,0,0) 0%)'
   
           
   
@@ -274,37 +304,64 @@ addEventListener('load', function(e){
   
       mainF.addEventListener('touchend', function(e){
   
+        if(dist===0){
+          allPhotosArray.forEach((p)=>{
+            if(p.classList.contains('photo--1')) {
+              p.style.transform = 'translateZ(0px) scale(1.3)'
+            }
+          })
+
+          neareFonTwo.style.zIndex = '10'
   
-  if(dist<0 && titlesCounter<6){
+          setTimeout(()=>{
+            var eE = setInterval(toHideAllTwo, 10)
+
+          function toHideAllTwo () {
+  
+            zzz++
+          
+            neareFonTwo.style.backgroundImage = `linear-gradient(to bottom, rgba(0,0,0,1) ${zzz/6}%, rgba(0,0,0,0) ${zzz}%), linear-gradient(to top, rgba(0,0,0,1) ${zzz/6}%, rgba(0,0,0,0) ${zzz}%), linear-gradient(to left, rgba(0,0,0,1) ${zzz/6}%, rgba(0,0,0,0) ${zzz}%), linear-gradient(to right, rgba(0,0,0,1) ${zzz/6}%, rgba(0,0,0,0) ${zzz}%)`
+          
+           if (zzz > 90) {clearInterval(eE)}
+          
+          }
+          }, 1000)
+
+        } else {
+          if(dist<0 && titlesCounter<6){
   
             titlesCounter++
-  
+
+            fonForPreTitle.innerHTML = themes[titlesCounter].preTitle
             fonForTitle.innerHTML = themes[titlesCounter].mainTitle
+            fonForFromNT.innerHTML = themes[titlesCounter].fromNT
   
           } else if(dist>0 && titlesCounter>0){
   
             titlesCounter--
   
+            fonForPreTitle.innerHTML = themes[titlesCounter].preTitle
             fonForTitle.innerHTML = themes[titlesCounter].mainTitle
+            fonForFromNT.innerHTML = themes[titlesCounter].fromNT
   
           } else {
   
+            fonForPreTitle.innerHTML = themes[titlesCounter].preTitle
             fonForTitle.innerHTML = themes[titlesCounter].mainTitle
+            fonForFromNT.innerHTML = themes[titlesCounter].fromNT
   
           }
   
   
   setTimeout(()=>{
-  
       var eee = setInterval(toShowTitles, 10)
   
-  
   function toShowTitles () {
-  
     zz++
   
-  
+  fonForPreTitle.style.backgroundImage = `radial-gradient(circle, rgba(255,255,255,.9) ${zz}%, rgba(0,0,0,0) ${zz*2}%)`
   fonForTitle.style.backgroundImage = `radial-gradient(circle, rgba(255,255,255,.9) ${zz}%, rgba(0,0,0,0) ${zz*2}%)`
+  fonForFromNT.style.backgroundImage = `radial-gradient(circle, rgba(255,255,255,.9) ${zz}%, rgba(0,0,0,0) ${zz*2}%)`
   
    if (zz > 120) {clearInterval(eee)}
   
@@ -539,8 +596,9 @@ addEventListener('load', function(e){
   
   }
   
-  
+  dist = 0
           e.preventDefault()
+        }
   
       }, false)
   
