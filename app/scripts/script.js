@@ -1,7 +1,7 @@
 addEventListener('load', function(e){
 
 
-  const title = document.getElementsByTagName('h4')[0],
+  var title = document.getElementsByTagName('h4')[0],
   
   pOne = document.getElementsByTagName('p')[0],
   
@@ -20,7 +20,7 @@ addEventListener('load', function(e){
   allPhotos = document.getElementsByClassName('photo')
   
   
-  const allPhotosArray = [
+  var allPhotosArray = [
   
     allPhotos[0],
   
@@ -39,7 +39,7 @@ addEventListener('load', function(e){
    ]
   
   
-  const urlForPhotos = [
+  var urlForPhotos = [
   
     './images/priest.jpg',
   
@@ -58,7 +58,7 @@ addEventListener('load', function(e){
    ]
   
   
-  const themes = [
+  var themes = [
   
      {
   
@@ -117,7 +117,7 @@ addEventListener('load', function(e){
   
   
   
-  let x = 0,
+  var x = 0,
   
       a = 0,
   
@@ -131,12 +131,12 @@ addEventListener('load', function(e){
   setTimeout(()=>{pOne.style.lineHeight ='1.3'}, 100)
   
   
-  const y = setInterval(toShow, 10),
+  var y = setInterval(toShow, 10),
   
   b = setInterval(toShowP, 20)
   
   
-  let d = null
+  var d = null
   
   
   setTimeout(()=>{
@@ -191,7 +191,6 @@ addEventListener('load', function(e){
   
   firBtn.addEventListener('click', ()=>{
   
-  
   fonForTitle.innerHTML = themes[0].mainTitle
   
     firBtn.classList.add('shining')
@@ -210,7 +209,6 @@ addEventListener('load', function(e){
   
       allPhotosArray[0].classList.remove('noShow')
   
-  
   allPhotosArray[1].classList.remove('noShow')
   
   allPhotosArray[1].classList.add('photo--2')
@@ -222,7 +220,7 @@ addEventListener('load', function(e){
     neareFon.style.zIndex = '10'
   
   
-    const e = setInterval(toHideAll, 10)
+    var e = setInterval(toHideAll, 10)
   
   
   function toHideAll () {
@@ -238,18 +236,8 @@ addEventListener('load', function(e){
   
   }, false)
   
-  
-  
-  
-  
-  
-  
   // код слайдера
-  
-  
-  
-  
-  let startx = 0, dist = 0, counter = 0, titlesCounter = 0
+  var startx = 0, dist = 0, counter = 0, titlesCounter = 0
   
   
   mainF.addEventListener('touchstart', function(e){
@@ -308,7 +296,7 @@ addEventListener('load', function(e){
   
   setTimeout(()=>{
   
-      const eee = setInterval(toShowTitles, 10)
+      var eee = setInterval(toShowTitles, 10)
   
   
   function toShowTitles () {
