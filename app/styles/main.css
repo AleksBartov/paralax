@@ -256,7 +256,7 @@ body {
 
   transform: translateY(-50%);
 
-  margin-left: 10px;
+  margin-left: 20px;
 
 }
 
@@ -271,7 +271,7 @@ body {
 
   transform: translateY(-50%);
 
-  margin-right: 10px;
+  margin-right: 20px;
 
 }
 
@@ -572,7 +572,8 @@ body {
   transform-origin: center center 0;
   transform-style: inherit;
   text-align: center;
-  font-size: .8rem;
+  font-size: 1.1rem;
+  line-height: 1;
   padding: 30px;
   position: absolute;
   top: 0;
@@ -584,4 +585,88 @@ body {
   -webkit-background-clip: text;
   color: transparent;
   visibility: hidden;
+}
+
+#bottomNavigationTitle {
+  & h4 {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 20px;
+    font-size: .7rem;
+  }
+}
+
+#bottomNavigation {
+  visibility: hidden;
+  position: fixed;
+  bottom: 0;
+  height: 50px;
+  width: 100%;
+  background-color: black;
+  color: white;
+
+  & > :nth-child(4) {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    margin-right: 20px;
+  }
+
+  & .arrow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 15px;
+    height: 20px;
+
+    &__right {
+      transform: translateY(-50%) translateX(-150%);
+
+      &__top {
+        position: absolute;
+        top: 2px;
+        left: 8px;
+        width: 3px;
+        height: 10px;
+        background-color: white;
+        transform: rotateZ(45deg);
+      }
+
+      &__bottom {
+        position: absolute;
+        top: 8px;
+        left: 8px;
+        width: 3px;
+        height: 10px;
+        background-color: white;
+        transform: rotateZ(-45deg);
+      }
+    }
+
+    &__left {
+      transform: translateY(-50%) translateX(50%);
+
+      &__top {
+        position: absolute;
+        top: 2px;
+        right: 8px;
+        width: 3px;
+        height: 10px;
+        background-color: white;
+        transform: rotateZ(-45deg);
+      }
+
+      &__bottom {
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        width: 3px;
+        height: 10px;
+        background-color: white;
+        transform: rotateZ(45deg);
+      }
+    }
+  }
 }

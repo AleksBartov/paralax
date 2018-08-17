@@ -24,6 +24,8 @@ addEventListener('load', function(e){
   blFon = document.getElementById('blackFon'),
   
   mainF = document.getElementById('mainFrame'),
+  bottomNavigation = document.getElementById('bottomNavigation'),
+  bottomNavigationTitle = document.getElementById('bottomNavigationTitle'),
   
   allPhotos = document.getElementsByClassName('photo')
   
@@ -71,6 +73,7 @@ addEventListener('load', function(e){
      {
   
        mainTitle: 'крещении',
+       fathersTitle: `<h4 class='noto toupper'>крещение</h4></br></br>`,
        preTitle: 'узнай о',
        fromNT: 'Научите вся языки, крестяще их во имя Отца и Сына, и Святаго Духа (Мф, 25.17)',
        holyFathersAbout: `Так как человек состоит из души и тела, то и очищение двоякое: бестелесное для бестелесного, а телесное для тела,– вода очищает тело, а Дух запечатлевает душу, чтобы нам приступить к Богу с сердцем окропленным и телом, омытым чистою водою.</br></br>св. Кирилл Иерусалимский`
@@ -80,6 +83,7 @@ addEventListener('load', function(e){
      {
   
        mainTitle: 'миропомазании',
+       fathersTitle: `<h4 class='noto toupper'>миропомазание</h4></br></br>`,
        preTitle: 'узнай о',
        fromNT: 'Дух Святый наставит вас на всякую истину (Мф, 25.17)',
        holyFathersAbout: `Ибо как Христос после Крещения и наития Святого Духа поборол диавола, так и вы, после священного Крещения и таинственного Помазания, облекшись во всеоружие Святого Духа, противостаньте силе противника и побеждайте ее, говоря: «Все могу в укрепляющем меня Иисусе Христе» (Флп. 4, 14). </br></br>св. Кирилл Иерусалимский`
@@ -89,6 +93,7 @@ addEventListener('load', function(e){
      {
   
        mainTitle: 'покаянии',
+       fathersTitle: `<h4 class='noto toupper'>покаяние</h4></br></br>`,
        preTitle: 'узнай о',
        fromNT: 'Покайтесь и веруйте во Евангелие (Мф, 25.17)',
        holyFathersAbout: `Исповедь, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</br></br>св. Кирилл Иерусалимский`
@@ -98,6 +103,7 @@ addEventListener('load', function(e){
      {
   
        mainTitle: 'браке',
+       fathersTitle: `<h4 class='noto toupper'>брак</h4></br></br>`,
        preTitle: 'узнай о',
        fromNT: 'Что Бог сочетал, человек да не разлучает (Мф, 25.17)',
        holyFathersAbout: `Венчание, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</br></br>св. Кирилл Иерусалимский`
@@ -107,6 +113,7 @@ addEventListener('load', function(e){
      {
   
        mainTitle: 'священстве',
+       fathersTitle: `<h4 class='noto toupper'>священство</h4></br></br>`,
        preTitle: 'узнай о',
        fromNT: 'Имже отпустите грехи, отпустятся им (Мф, 25.17)',
        holyFathersAbout: `Священство sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</br></br>св. Кирилл Иерусалимский`
@@ -116,6 +123,7 @@ addEventListener('load', function(e){
      {
   
        mainTitle: 'соборовании',
+       fathersTitle: `<h4 class='noto toupper'>соборование</h4></br></br>`,
        preTitle: 'узнай о',
        fromNT: 'И мазали больных маслом (Мф, 25.17)',
        holyFathersAbout: `Соборование amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</br></br>св. Кирилл Иерусалимский`
@@ -125,6 +133,7 @@ addEventListener('load', function(e){
      {
   
        mainTitle: 'евхаристии',
+       fathersTitle: `<h4 class='noto toupper'>евхаристия</h4></br></br>`,
        preTitle: 'узнай о',
        fromNT: 'Это есть истинная Пища и истинное Питие (Мф, 25.17)',
        holyFathersAbout: `Божественная евхаристия sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</br></br>св. Кирилл Иерусалимский`
@@ -296,18 +305,10 @@ addEventListener('load', function(e){
           e.preventDefault()
   
       }, false)
-  
-  
   mainF.addEventListener('touchmove', function(e){
-  
           var touchobj = e.changedTouches[0]
-  
           dist = parseInt(touchobj.clientX) - startx
-  
-          
-  
           e.preventDefault()
-  
       }, false)
   
   
@@ -320,6 +321,8 @@ addEventListener('load', function(e){
           allPhotosArray.forEach((p)=>{
             if(p.classList.contains('photo--1')) {
               p.style.transform = 'translateZ(0px) scale(1.3)'
+            } else {
+              p.style.transform = 'translateZ(-1000px)'
             }
           })
   
@@ -340,16 +343,18 @@ addEventListener('load', function(e){
             forHolyFathers.style.visibility = 'visible'
             forHolyFathers.style.backgroundImage = 'black'
             mainF.style.backgroundImage = 'rgba(0,0,0,.5)'
-            forHolyFathers.innerHTML = themes[titlesCounter].holyFathersAbout
+            forHolyFathers.innerHTML += themes[titlesCounter].fathersTitle
+            forHolyFathers.innerHTML += themes[titlesCounter].holyFathersAbout
+            
 
             function toShowHolyFathers () {
               counterFathers++
-              forHolyFathers.style.backgroundImage = `radial-gradient(circle, rgba(255,255,255,1) ${counterFathers/3}%, rgba(0,0,0,0) ${counterFathers}%)`
+              forHolyFathers.style.backgroundImage = `radial-gradient(circle at top left, rgba(255,255,255,1) ${counterFathers/3}%, rgba(0,0,0,0) ${counterFathers}%), radial-gradient(circle at top right, rgba(255,255,255,1) ${counterFathers/3}%, rgba(0,0,0,0) ${counterFathers}%)`
               if (counterFathers > 190) {
                 clearInterval(fathers)
               }
             }
-          }, 2500)
+          }, 1500)
 
           setTimeout(()=>{
             var fathersDone = setInterval(toHideHolyFathers, 10), counterFathers = 300
@@ -362,6 +367,15 @@ addEventListener('load', function(e){
               }
             }
           }, 10000)
+
+          setTimeout(()=>{
+            bottomNavigationTitle.innerHTML = themes[titlesCounter].fathersTitle
+            bottomNavigation.style.visibility = 'visible'
+            mainF.innerHTML = ''
+            mainF.style.background = 'rgba(45,45,45,1)'
+          }, 15500)
+
+
 
         } else {
           if(dist<0 && titlesCounter<6){
