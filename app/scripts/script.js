@@ -43,28 +43,39 @@ addEventListener('load', function(e){
     allPhotos[4],
   
     allPhotos[5],
+    allPhotos[6],
   
-    allPhotos[6]
+    allPhotos[7],
+  
+    allPhotos[8],
+  
+    allPhotos[9],
+  
+    allPhotos[10],
+  
+    allPhotos[11],
+  
+    allPhotos[12],
+    allPhotos[13]
   
    ]
   
   
-  var urlForPhotos = [
-  
+  const urlForPhotos = [
     './images/priest.jpg',
-  
+    './images/priest_b&w.jpg',
     './images/priest.jpg',
-  
+    './images/priest_b&w.jpg',
     './images/priest.jpg',
-  
+    './images/priest_b&w.jpg',
     './images/venchanie.jpg',
-  
+    './images/venchanie_b&w.jpg',
     './images/priest.jpg',
-  
+    './images/priest_b&w.jpg',
     './images/priest.jpg',
-  
-    './images/evharistia.jpg'
-  
+    './images/priest_b&w.jpg',
+    './images/evharistia.jpg',
+    './images/evharistia_b&w.jpg'
    ]
   
   
@@ -75,7 +86,7 @@ addEventListener('load', function(e){
        mainTitle: 'крещении',
        fathersTitle: `<h4 class='noto toupper'>крещение</h4></br></br>`,
        preTitle: 'узнай о',
-       fromNT: 'Научите вся языки, крестяще их во имя Отца и Сына, и Святаго Духа (Мф, 25.17)',
+       fromNT: 'Идите, научите все народы, крестя их во имя Отца и Сына и Святаго Духа (Мф, 28.19)',
        holyFathersAbout: `Так как человек состоит из души и тела, то и очищение двоякое: бестелесное для бестелесного, а телесное для тела,– вода очищает тело, а Дух запечатлевает душу, чтобы нам приступить к Богу с сердцем окропленным и телом, омытым чистою водою.</br></br>св. Кирилл Иерусалимский`
   
      },
@@ -85,7 +96,7 @@ addEventListener('load', function(e){
        mainTitle: 'миропомазании',
        fathersTitle: `<h4 class='noto toupper'>миропомазание</h4></br></br>`,
        preTitle: 'узнай о',
-       fromNT: 'Дух Святый наставит вас на всякую истину (Мф, 25.17)',
+       fromNT: 'Когда же приидет Он, Дух истины, то наставит вас на всякую истину (Ин, 16.13)',
        holyFathersAbout: `Ибо как Христос после Крещения и наития Святого Духа поборол диавола, так и вы, после священного Крещения и таинственного Помазания, облекшись во всеоружие Святого Духа, противостаньте силе противника и побеждайте ее, говоря: «Все могу в укрепляющем меня Иисусе Христе» (Флп. 4, 14). </br></br>св. Кирилл Иерусалимский`
   
      },
@@ -95,8 +106,8 @@ addEventListener('load', function(e){
        mainTitle: 'покаянии',
        fathersTitle: `<h4 class='noto toupper'>покаяние</h4></br></br>`,
        preTitle: 'узнай о',
-       fromNT: 'Покайтесь и веруйте во Евангелие (Мф, 25.17)',
-       holyFathersAbout: `Исповедь, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</br></br>св. Кирилл Иерусалимский`
+       fromNT: 'Покайтесь и веруйте в Евангелие (Мк, 1.15)',
+       holyFathersAbout: `Как человек, крещаемый человеком, то есть священником, просвещается благодатью Духа Святого, так и исповедующий в Покаянии грехи свои приемлет оставление их через священника благодатью Иисуса Христа.</br></br>св. Афанасий Великий`
   
      },
   
@@ -105,8 +116,8 @@ addEventListener('load', function(e){
        mainTitle: 'браке',
        fathersTitle: `<h4 class='noto toupper'>брак</h4></br></br>`,
        preTitle: 'узнай о',
-       fromNT: 'Что Бог сочетал, человек да не разлучает (Мф, 25.17)',
-       holyFathersAbout: `Венчание, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</br></br>св. Кирилл Иерусалимский`
+       fromNT: 'Что Бог сочетал, того человек да не разлучает (Мф, 19.6)',
+       holyFathersAbout: `Лучше всего, если Сам Христос присутствует на браке, потому что где Христос, там все обретает достоинство, и вода претворяется в вино, то есть все изменяется к лучшему.</br></br>св. Григорий Богослов`
   
      },
   
@@ -115,8 +126,8 @@ addEventListener('load', function(e){
        mainTitle: 'священстве',
        fathersTitle: `<h4 class='noto toupper'>священство</h4></br></br>`,
        preTitle: 'узнай о',
-       fromNT: 'Имже отпустите грехи, отпустятся им (Мф, 25.17)',
-       holyFathersAbout: `Священство sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</br></br>св. Кирилл Иерусалимский`
+       fromNT: 'Кому простите грехи, тому простятся; на ком оставите, на том останутся (Ин, 20.23)',
+       holyFathersAbout: `То, что вручено священнику, может даровать только Бог, и чего бы ни достигла человеческая мудрость, она окажется меньше, чем благодать.</br></br>св. Иоанн Златоуст`
   
      },
   
@@ -125,8 +136,8 @@ addEventListener('load', function(e){
        mainTitle: 'соборовании',
        fathersTitle: `<h4 class='noto toupper'>соборование</h4></br></br>`,
        preTitle: 'узнай о',
-       fromNT: 'И мазали больных маслом (Мф, 25.17)',
-       holyFathersAbout: `Соборование amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</br></br>св. Кирилл Иерусалимский`
+       fromNT: 'И многих больных мазали маслом и исцеляли (Мк, 6.13)',
+       holyFathersAbout: `Имея какую-нибудь телесную болезнь, мы всеми силами стараемся освободиться от нее, а тяжко страдая от болезней душевных, мы медлим... Потому мы не избавляемся и от телесных болезней, что необходимое для нас считаем маловажным, а маловажное – необходимым и, оставив самый источник зол (грехи и страсти), хотим очистить потоки (болезни телесные).</br></br>св. Иоанн Златоуст`
   
      },
   
@@ -135,8 +146,9 @@ addEventListener('load', function(e){
        mainTitle: 'евхаристии',
        fathersTitle: `<h4 class='noto toupper'>евхаристия</h4></br></br>`,
        preTitle: 'узнай о',
-       fromNT: 'Это есть истинная Пища и истинное Питие (Мф, 25.17)',
-       holyFathersAbout: `Божественная евхаристия sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</br></br>св. Кирилл Иерусалимский`
+       fromNT: 'Ибо Плоть Моя истинно есть пища, и Кровь Моя истинно есть питие (Ин, 6.55)',
+       holyFathersAbout: `Мы приемлем
+       Евхаристию не как простой хлеб и не как простое питие, но каким образом Иисус Христос-Спаситель наш, воплотившись Словом Божиим, имел для спасения нашего Плоть и Кровь, таким же образом и Пища эта, над которой произнесено благодарение молитвой Слова Его, по преложении питающая нашу кровь и плоть, есть Плоть и Кровь Того же воплотившегося Иисуса Христа.</br></br>св. Иустин Философ`
   
      }
   
@@ -248,14 +260,12 @@ addEventListener('load', function(e){
   
   
     setTimeout(()=>{
-  
       allPhotosArray[0].classList.remove('noShow')
-  
-  allPhotosArray[1].classList.remove('noShow')
-  
-  allPhotosArray[1].classList.add('photo--2')
-  
-  
+      allPhotosArray[1].classList.remove('noShow')
+      allPhotosArray[2].classList.remove('noShow')
+      allPhotosArray[3].classList.remove('noShow')
+      allPhotosArray[2].classList.add('photo--2')
+      allPhotosArray[3].classList.add('photo--2')
     }, 1500)
   
   
@@ -318,8 +328,12 @@ addEventListener('load', function(e){
           fonForFromNT.style.visibility = 'hidden'
           fonForPreTitle.style.visibility = 'hidden'
           fonForTitle.style.visibility = 'hidden'
-          allPhotosArray.forEach((p)=>{
-            if(p.classList.contains('photo--1')) {
+
+          allPhotosArray.forEach((p, index)=>{
+            if(p.classList.contains('photo--1') && index%2===1) {
+              p.style.transform = 'translateZ(0px) scale(1.3)'
+              p.style.opacity = '0'
+            } else if(p.classList.contains('photo--1')) {
               p.style.transform = 'translateZ(0px) scale(1.3)'
             } else {
               p.style.transform = 'translateZ(-1000px)'
